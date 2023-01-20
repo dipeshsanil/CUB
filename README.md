@@ -1,2 +1,2 @@
 # CUB
-Cyberlocker using BLockchain
+Cyberlocker using Blockchain
