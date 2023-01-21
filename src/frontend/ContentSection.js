@@ -5,44 +5,61 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import Button from "./Button";
 
-
 const ContentSection = ({ upload }) => {
-	
-	    const [loading, setLoading] = useState(true)
-	    const [items, setItems] = useState([])
+	const [loading, setLoading] = useState(true);
+	const [items, setItems] = useState([]);
 
-	    const loadStorage = async () => {
-	      console.log(await upload.tokenId());
-	      const itemCount = await upload.tokenId()
+	const loadStorage = async () => {
+		console.log(await upload.tokenId());
+		const itemCount = await upload.tokenId();
 
-	      let items = []
-	      for (let i = 1; i <= itemCount; i++) {
-	        // const item = await upload.items(i)
+		const filter = upload.filters.stored(null, account);
+		const results = await upload.queryFilter(filter);
 
-			const uri = await upload.getTokenURI(i);
+		let items = [];
+		// for (let i = 1; i <= itemCount; i++) {
+		// 	// const item = await upload.items(i)
 
-			//console.log(uri)
+		// 	const uri = await upload.getTokenURI(i);
 
-			const response = await fetch(uri)
-			console.log(response);
-			const metadata = await response.json()
+		// 	//console.log(uri)
 
+		// 	const response = await fetch(uri);
+		// 	console.log(response);
+		// 	const metadata = await response.json();
 
-			items.push({
-			title: metadata.title,
-			details: metadata.details,
-			image: metadata.image
+		// 	items.push({
+		// 		title: metadata.title,
+		// 		details: metadata.details,
+		// 		image: metadata.image,
+		// 	});
+		// }
+
+		const purchases = await Promise.all(
+			results.map(async (i) => {
+				const uri = await upload.getTokenURI(i);
+
+				//console.log(uri)
+
+				const response = await fetch(uri);
+				console.log(response);
+				const metadata = await response.json();
+
+				items.push({
+					title: metadata.title,
+					details: metadata.details,
+					image: metadata.image,
+				});
 			})
-	      }
-	      setLoading(false)
-	      setItems(items)
-	    }
+		);
 
-	    useEffect( () => {
-			loadStorage()
-	    }, [])
+		setLoading(false);
+		setItems(items);
+	};
 
-
+	useEffect(() => {
+		loadStorage();
+	}, []);
 
 	return (
 		<div

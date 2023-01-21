@@ -25,9 +25,20 @@ contract Upload {
 
     mapping(uint => string) public tokenCID;
 
+    event stored(
+        uint itemId,
+        address indexed owner
+    );
+
     function uploadImage(string memory _CID) external returns(uint){
         tokenId++;
         tokenCID[tokenId] = _CID;
+
+        emit stored(
+            tokenId,
+            msg.sender
+        );
+        
         return tokenId;
     }
 
