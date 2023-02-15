@@ -6,13 +6,13 @@ import Button from "./Button";
 const NavBar = ({ web3Handler, account, balance }) => {
   return (
     <>
-      <nav className="navbar navbar-expand-md navbar-light fixed-top bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-light">
         <div className="container">
-        <Link to="/home" style={{ textDecoration: "none" }}>
-          <a className="navbar-brand" href="#">
-            CyberLocker
-          </a>
-        </Link>
+          <Link to="/home" style={{ textDecoration: "none" }}>
+            <a className="navbar-brand" href="#">
+              CyberLocker
+            </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -60,18 +60,16 @@ const NavBar = ({ web3Handler, account, balance }) => {
               >
                 <li>
                   {account ? (
-                    
-                      <span
-                        href={`https://etherscan.io/address/${account}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="dropdown-item"
-                      >
-                        {" "}
-                        Account:{" "}
-                        {account.slice(0, 5) + "..." + account.slice(38, 42)}
-                      </span>
-                    
+                    <span
+                      href={`https://etherscan.io/address/${account}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="dropdown-item"
+                    >
+                      {" "}
+                      Account:{" "}
+                      {account.slice(0, 5) + "..." + account.slice(38, 42)}
+                    </span>
                   ) : (
                     <span onClick={web3Handler} className="dropdown-item">
                       <button
@@ -102,7 +100,9 @@ const NavBar = ({ web3Handler, account, balance }) => {
                     </a>
                   </Link>
                 </li>
-                <li><hr class="dropdown-divider"/></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
                 <li>
                   <Link to="/" style={{ textDecoration: "none" }}>
                     <a className="dropdown-item" href="#">
