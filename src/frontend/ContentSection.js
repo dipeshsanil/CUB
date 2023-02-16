@@ -23,15 +23,13 @@ const ContentSection = ({ upload }) => {
 
 			//console.log(uri)
 
-			const response = await fetch(uri)
-			console.log(response);
-			const metadata = await response.json()
+			const response = await fetch(uri) 
+			const file = await response
+			console.log(file.url)
 
 
 			items.push({
-			title: metadata.title,
-			details: metadata.details,
-			image: metadata.image
+			image: file.url
 			})
 	      }
 	      setLoading(false)

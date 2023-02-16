@@ -77,7 +77,7 @@ const Card = ({ key, item }) => {
 				</div>
 				<div class="card-body ">
 					<div class="d-flex justify-content-between align-items-center">
-						<h5 class="card-title">{item.title}</h5>
+						{/* <h5 class="card-title">{item.title}</h5> */}
 						<a
 							href="#"
 							role="button"
