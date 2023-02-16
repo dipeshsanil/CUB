@@ -71,12 +71,12 @@ const ContentSection = ({ upload, account }) => {
 			id="marketplace"
 			style={{ padding: "7% 0" }}>
 			<div className="container px-3">
-				<h2 className="">ALL Files</h2>
+				<h2 className="">Files</h2>
 				<div className="row my-5">
 					{items.length > 0 ? (
 						items.map((item, index) => <Card key={index} item={item} />)
 					) : (
-						<main style={{ padding: "1rem 0" }}>
+						<main class="text-center" style={{ padding: "1rem 0" }}>
 							<h2>No listed assets</h2>
 						</main>
 					)}

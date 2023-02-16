@@ -1,5 +1,9 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import {RiShutDownLine} from "react-icons/ri"
+import {AiOutlineUser} from "react-icons/ai";
+import {BiCoinStack} from "react-icons/bi";
+import {AiOutlineUpload} from "react-icons/ai";
 
 import Button from "./Button";
 
@@ -65,7 +69,7 @@ const NavBar = ({ web3Handler, account, balance }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="dropdown-item"
-                    >
+                    ><AiOutlineUser />
                       {" "}
                       Account:{" "}
                       {account.slice(0, 5) + "..." + account.slice(38, 42)}
@@ -82,8 +86,9 @@ const NavBar = ({ web3Handler, account, balance }) => {
                   )}
                 </li>
                 <li>
+                
                   <a className="dropdown-item" href="#">
-                    Balance: {balance}
+                    <span> <BiCoinStack /> Balance: {balance}</span>
                   </a>
                 </li>
                 {/* <li>
@@ -96,7 +101,7 @@ const NavBar = ({ web3Handler, account, balance }) => {
                 <li>
                   <Link to="/upload" style={{ textDecoration: "none" }}>
                     <a className="dropdown-item" href="#">
-                      <span>Upload</span>
+                      <span><AiOutlineUpload /> Upload</span>
                     </a>
                   </Link>
                 </li>
@@ -106,7 +111,7 @@ const NavBar = ({ web3Handler, account, balance }) => {
                 <li>
                   <Link to="/" style={{ textDecoration: "none" }}>
                     <a className="dropdown-item" href="#">
-                      <span>Log Out</span>
+                      <span><RiShutDownLine /> Log Out</span>
                     </a>
                   </Link>
                 </li>
