@@ -63,7 +63,10 @@ const App = () => {
 							/>
 						}>
 						<Route index element={<Login web3Handler={web3Handler} />} />
-						<Route path="home" element={<Home upload={upload} />} />
+						<Route
+							path="home"
+							element={<Home upload={upload} account={account} />}
+						/>
 						<Route path="*" element={<Navigate to="/" />} />
 						<Route path="details" element={<Details upload={upload} />} />
 						{/* //change */}
