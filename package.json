@@ -28,10 +28,11 @@
 		"ipfs-http-client": "^56.0.1",
 		"react": "^18.0.0",
 		"react-bootstrap": "^2.1.2",
-		"react-dom": "^18.2.0",
+		"react-dom": "^18.0.0",
+		"react-icons": "^4.7.1",
 		"react-router-dom": "^6.3.0",
-		"react-scripts": "^5.0.0",
 		"styled-components": "^5.3.6",
+		"react-scripts": "5.0.0",
 		"tiff": "^5.0.3",
 		"tiff.js": "^1.0.0",
 		"uuidv4": "^6.2.13",
@@ -64,7 +65,6 @@
 		]
 	},
 	"devDependencies": {
-		"@babel/plugin-syntax-top-level-await": "^7.14.5",
 		"@babel/preset-env": "^7.16.11"
 	}
 }
