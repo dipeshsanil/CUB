@@ -56,7 +56,7 @@ const Card = ({ key, item }) => {
     // document.getElementById("img").src = image;
   };
   return (
-    <div class="col-12 col-md-3 gy-4">
+    <div class="col-lg-3 col-sm-12 gy-4">
       <div class="card shadow-sm" style={{ borderRadius: 20 }}>
         <div id={key} className="card-image">
           <img

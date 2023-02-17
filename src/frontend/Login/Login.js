@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { ethers } from "ethers";
+import React, { useState } from "react";
+// import { ethers } from "ethers";
 import "../style.css";
 import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../Button";
 import Features from "./Features";
+import About from "../About";
+import TechStack from "../TechStack";
 import Footer from "../Footer";
 
 import landingImg from "../img/landingImg.svg";
@@ -72,21 +74,25 @@ const Login = ({ web3Handler }) => {
 
   return (
     <>
-      <div id="login" className="container-fluid">
-        <div className="row">
-          <div className="col-lg-6">
-            <h2>Decentralized Cloud Storage Using Blockchain</h2>
-            <p>The decentralized web awaits</p>
-            <Button name={connButtonText} onClick={onClick} />
-            <br />
-            {errorMessage}
-          </div>
-          <div className="col-lg-6 mx-auto py-4">
-            <img src={landingImg} alt="" style={{ width: "90%" }} />
+      <div id="login">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-lg-6">
+              <h2>Decentralized File Storage Using Blockchain</h2>
+              <p>The decentralized web awaits</p>
+              <Button name={connButtonText} onClick={onClick} />
+              <br />
+              {errorMessage}
+            </div>
+            <div className="col-lg-6 mx-auto py-4">
+              <img src={landingImg} alt="" style={{ width: "90%" }} />
+            </div>
           </div>
         </div>
       </div>
       <Outlet />
+      <About />
+      <TechStack />
       <Features />
       <Footer />
     </>
