@@ -5,7 +5,6 @@ import UploadAbi from "./contractsData/Upload.json";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import Login from "./Login/Login";
-import Details from "./Details";
 import UserDashboard from "./UserDashboard";
 import AdminDashboard from "./AdminDashboard";
 import Upload from "./Upload";
@@ -65,7 +64,6 @@ const App = () => {
 						<Route index element={<Login web3Handler={web3Handler} />} />
 						<Route path="home" element={<Home upload={upload} />} />
 						<Route path="*" element={<Navigate to="/" />} />
-						<Route path="details" element={<Details upload={upload} />} />
 						{/* //change */}
 						<Route path="preview" element={<Preview upload={upload} />} />
 						<Route path="user" element={<UserDashboard />} />

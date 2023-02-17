@@ -10,15 +10,15 @@ import Button from "./Button";
 import { create } from "ipfs-http-client";
 // const auth = 'Basic ' + Buffer.from(process.env.PROJECT_ID  + ':' + process.env.PROJECT_SECRET).toString('base64');
 // const ipfs = await IPFS.create()
-var ipfs; 
+// var ipfs; 
 
- const start = async () => {
-	try{
-		ipfs = await IPFS.create( );
-	} catch(e) {
-		console.error(e);
-	}
-}
+//  const start = async () => {
+// 	try{
+// 		ipfs = await IPFS.create( );
+// 	} catch(e) {
+// 		console.error(e);
+// 	}
+// }
 
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEFDMzI2NzQ2ZTYyZTZGMTc1ODMyNmRiNDI1N0I1YzRCREE5Y2JFN0UiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzY0Njc1NTI2MTAsIm5hbWUiOiJDVUIifQ.bBTAXUy6zf6I7exvpm8af3ONvwRqNI0ZrWeo7ZovC_g'
 const client = new Web3Storage({ token })
