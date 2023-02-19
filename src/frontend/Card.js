@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { fromUrl, fromUrls, fromArrayBuffer, fromBlob } from "geotiff";
 import Tiff from "tiff.js";
 import { useEffect } from "react";
+
 // import { ethers } from "ethers";
 const Card = ({ key, item }) => {
   const loadImage = (ipfsUrl, key) => {
@@ -60,6 +61,7 @@ const Card = ({ key, item }) => {
       <div class="card shadow-sm" style={{ borderRadius: 20 }}>
         <div id={key} className="card-image">
           <img
+            class="card-img"
             style={{
               // borderTopLeftRadius: 20,
               // borderTopRightRadius: 20,
@@ -70,49 +72,20 @@ const Card = ({ key, item }) => {
             // id = {key}
             src={item.image}
             className="card-img-top"
-            alt="..."
+            alt="Preview not available"
           />
           {/* {onImageChange(item.image, key)} */}
           <div className="image-overlay"></div>
         </div>
         <div class="card-body ">
-          <div class="d-flex justify-content-between align-items-center">
-            {/* <h5 class="card-title">{item.title}</h5> */}
+          {/* <div class="d-flex justify-content-between align-items-center"> */}
+          {/* <h5 class="card-title">{item.title}</h5> */}
+          <div class="d-grid gap-2">
             <button class="btn btn-primary">
               <a href={item.image} target="_blank">
                 Download
               </a>
             </button>
-            <a
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <svg
-                width="25"
-                height="11"
-                viewBox="0 0 57 11"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="5.5" cy="5.5" r="5.5" fill="black" />
-                <circle cx="28.5" cy="5.5" r="5.5" fill="black" />
-                <circle cx="51.5" cy="5.5" r="5.5" fill="black" />
-              </svg>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li>
-                <Link
-                  to="/preview"
-                  state={{ item }}
-                  style={{ textDecoration: "none" }}
-                >
-                  <button class="dropdown-item">Preview</button>
-                </Link>
-              </li>
-            </ul>
           </div>
           {/* <p class="card-text text-muted">{item.seller}</p> */}
         </div>
