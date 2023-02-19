@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { RiShutDownLine } from "react-icons/ri";
 import { AiOutlineUser } from "react-icons/ai";
@@ -9,6 +9,12 @@ import { AiOutlineUpload } from "react-icons/ai";
 import Button from "./Button";
 
 const NavBar = ({ web3Handler, account, balance }) => {
+  const navigate = useNavigate();
+  const onClick = () => {
+    navigate("/");
+    navigate(0);
+	};
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-light">
@@ -124,13 +130,11 @@ const NavBar = ({ web3Handler, account, balance }) => {
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <Link to="/" style={{ textDecoration: "none" }}>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" onClick={onClick} href="#">
                       <span>
                         <RiShutDownLine /> Log Out
                       </span>
                     </a>
-                  </Link>
                 </li>
               </ul>
             </div>
