@@ -26,6 +26,22 @@ const Card = ({ key, item }) => {
     xhr.send();
   };
 
+  const onClick = (event) => {
+    event.preventDefault();
+    fetch(item.image).then(response => {
+      response.blob().then(blob => {
+          // Creating new object of PDF file
+          const fileURL = window.URL.createObjectURL(blob);
+          // Setting various property values
+          let alink = document.createElement('a');
+          alink.href = fileURL;
+          const filename = decodeURI(item.image)
+          alink.download = (filename).substring((filename).lastIndexOf('/') + 1);
+          alink.click();
+      })
+  })
+	};
+
   const onImageChange = async (ipfsUrl, key) => {
     // let url = URL.createObjectURL(event.target.files[0]);
     loadImage(ipfsUrl, key);
@@ -79,7 +95,7 @@ const Card = ({ key, item }) => {
           <div class="d-flex justify-content-between align-items-center">
             {/* <h5 class="card-title">{item.title}</h5> */}
             <button class="btn btn-primary">
-              <a href={item.image} target="_blank">
+              <a onClick={onClick}>
                 Download
               </a>
             </button>
