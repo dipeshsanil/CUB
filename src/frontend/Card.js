@@ -3,6 +3,9 @@ import { Link, Outlet } from "react-router-dom";
 import { fromUrl, fromUrls, fromArrayBuffer, fromBlob } from "geotiff";
 import Tiff from "tiff.js";
 import { useEffect } from "react";
+import altImg from "./img/file_alt.jpg";
+
+import "./style.css";
 
 // import { ethers } from "ethers";
 const Card = ({ key, item }) => {
@@ -56,17 +59,20 @@ const Card = ({ key, item }) => {
     );
     // document.getElementById("img").src = image;
   };
+
   return (
     <div class="col-lg-3 col-sm-12 gy-4">
       <div class="card shadow-sm" style={{ borderRadius: 20 }}>
         <div id={key} className="card-image">
           <img
             class="card-img"
+            onError={(e) => {
+              e.target.src = altImg;
+            }}
             style={{
               // borderTopLeftRadius: 20,
               // borderTopRightRadius: 20,
               borderRadius: 20,
-              minHeight: "200px",
             }}
             // src= {item.image}
             // id = {key}
