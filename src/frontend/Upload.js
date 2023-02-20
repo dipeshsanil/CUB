@@ -24,12 +24,15 @@ const token =
 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEFDMzI2NzQ2ZTYyZTZGMTc1ODMyNmRiNDI1N0I1YzRCREE5Y2JFN0UiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzY0Njc1NTI2MTAsIm5hbWUiOiJDVUIifQ.bBTAXUy6zf6I7exvpm8af3ONvwRqNI0ZrWeo7ZovC_g";
 const client = new Web3Storage({ token });
 
+//const client = create("http://127.0.0.1:5001/api/v0");
 
 const Upload = ({ upload }) => {
 	const navigate = useNavigate();
 	console.log(upload);
 	const [image, setImage] = useState("");
-
+	const [title, setTitle] = useState("");
+	const [file, setFile] = useState("");
+	// const [details, setDetails] = useState("");
 
 	//Uploads the file to ipfs
 	const send = async (event) => {
@@ -38,6 +41,14 @@ const Upload = ({ upload }) => {
 		console.log(file);
 		if (typeof file !== "undefined") {
 			try {
+				//const result = await client.add(file);
+				// await start();
+				// const { cid } = await ipfs.add(file)
+				// console.log(cid);
+				//const files = await getFilesFromPath(file.webkitRelativePath)
+				// const ext = file.name.split('.').pop();
+				// const fileName = `${uuid()}.${ext}`;
+				// const newFile = new File([file], fileName, {type: file.type});
 				const cid = await client.put([file], {
 					name: file.name,
 				});
@@ -48,7 +59,32 @@ const Upload = ({ upload }) => {
 			}
 		}
 	};
+	// const create = async (event) => {
+	// 	event.preventDefault();
+	// 	// if (!image || !title || !details) return;
+	// 	if (!image) return;
+	// 	try {
+	// 		// const result = await ipfs.add(
+	// 		// 	// JSON.stringify({ image, title, details })
+	// 		// 	JSON.stringify({ image, title})
+	// 		// );
+	// 		const { cid } = await ipfs.add(
+	// 			// JSON.stringify({ image, title, details })
+	// 			JSON.stringify({ image, title})
+	// 		);
+	// 		console.log(cid);
+	// 		await uploaddetails(cid);
+	// 	} catch (error) {
+	// 		console.log("ipfs uri upload error: ", error);
+	// 	}
+	// };
 
+	// const uploaddetails = async (result) => {
+	// 	console.log(result);
+	// 	const uri = `https://ipfs.io/ipfs/${result}`;
+	// 	await (await upload.uploadImage(uri)).wait();
+	// 	console.log(await upload.tokenId());
+	// };
 
 	const uploaddetails = async (event) => {
 		event.preventDefault();
@@ -81,6 +117,17 @@ const Upload = ({ upload }) => {
 						type="file"
 						className="form-control"
 						name="file"
+						id="title"
+					/>
+				</div>
+				<div className="mb-3">
+					<label for="title" className="form-label">
+						Title
+					</label>
+					<input
+						onChange={(e) => setTitle(e.target.value)}
+						type="text"
+						className="form-control"
 						id="title"
 					/>
 				</div>
