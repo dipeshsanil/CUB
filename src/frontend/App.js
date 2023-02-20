@@ -11,6 +11,7 @@ import Upload from "./Upload";
 import Preview from "./Preview";
 import { useState } from "react";
 import { ethers } from "ethers";
+import Share from "./Share";
 // import { upload } from "@testing-library/user-event/dist/upload";
 
 const App = () => {
@@ -72,6 +73,10 @@ const App = () => {
 						<Route path="user" element={<UserDashboard />} />
 						<Route path="admin" element={<AdminDashboard />} />
 						<Route path="upload" element={<Upload upload={upload} />} />
+						<Route
+							path="files/:cid/:filename"
+							element={<Share route={Route} />}
+						/>
 					</Route>
 				</Routes>
 			</BrowserRouter>

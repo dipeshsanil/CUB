@@ -10,7 +10,7 @@ import Button from "./Button";
 import { create } from "ipfs-http-client";
 // const auth = 'Basic ' + Buffer.from(process.env.PROJECT_ID  + ':' + process.env.PROJECT_SECRET).toString('base64');
 // const ipfs = await IPFS.create()
-// var ipfs; 
+// var ipfs;
 
 //  const start = async () => {
 // 	try{
@@ -32,6 +32,9 @@ const Upload = ({ upload }) => {
 	const [image, setImage] = useState("");
 	const [title, setTitle] = useState("");
 	const [file, setFile] = useState("");
+	const [cid, setCid] = useState("");
+	const [fileName, setFileName] = useState("");
+	// const [url, setUrl] = useState("");
 	// const [details, setDetails] = useState("");
 
 	//Uploads the file to ipfs
@@ -52,7 +55,10 @@ const Upload = ({ upload }) => {
 				const cid = await client.put([file], {
 					name: file.name,
 				});
+				setCid(cid);
+				setFileName(file.name);
 				console.log(cid);
+				console.log(file.name);
 				setImage(`https://${cid}.ipfs.dweb.link/${file.name}`);
 			} catch (error) {
 				console.log("ipfs image upload error: ", error);
@@ -96,7 +102,10 @@ const Upload = ({ upload }) => {
 	const onClick = (event) => {
 		uploaddetails(event)
 			.then((result) => {
-				navigate("/home");
+				// console.log(url);
+				const url = "/files/" + cid + "/" + fileName;
+				console.log(url);
+				navigate(url);
 			})
 			.catch((error) => {
 				console.log(error.message);
@@ -122,13 +131,14 @@ const Upload = ({ upload }) => {
 				</div>
 				<div className="mb-3">
 					<label for="title" className="form-label">
-						Title
+						Share
 					</label>
 					<input
 						onChange={(e) => setTitle(e.target.value)}
 						type="text"
 						className="form-control"
 						id="title"
+						value={image}
 					/>
 				</div>
 

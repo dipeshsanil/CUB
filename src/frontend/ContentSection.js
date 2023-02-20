@@ -50,6 +50,7 @@ const ContentSection = ({ upload, account }) => {
 				const response = await fetch(uri);
 				const file = await response;
 				console.log(file.url);
+				console.log(file.name);
 
 				items.push({
 					image: file.url,
