@@ -15,6 +15,23 @@ const Share = () => {
   const item = {
     image: url,
   };
+
+  const onClick = (event) => {
+    event.preventDefault();
+    fetch(item.image).then((response) => {
+      response.blob().then((blob) => {
+        // Creating new object of PDF file
+        const fileURL = window.URL.createObjectURL(blob);
+        // Setting various property values
+        let alink = document.createElement("a");
+        alink.href = fileURL;
+        const filename = decodeURI(item.image);
+        alink.download = filename.substring(filename.lastIndexOf("/") + 1);
+        alink.click();
+      });
+    });
+  };
+
   const CopyText = () => {
     // Get the text field
     var copyText = document.getElementById("myInput");
@@ -40,7 +57,7 @@ const Share = () => {
               e.target.src = altImg;
             }}
             src={item.image}
-            style={{ width: "90%", borderRadius: "25px" }}
+            style={{ width: "100%", borderRadius: "25px" }}
             alt="Preview not available"
           />
         </div>
@@ -59,6 +76,12 @@ const Share = () => {
           <button className="btn btn-primary mx-3" onClick={CopyText}>
             Copy text
           </button>
+          <p className="fw-bold pt-3">OR</p>
+          <div className="d-grid gap-2 pb-3">
+            <button className="btn btn-primary">
+              <a onClick={onClick}>Download</a>
+            </button>
+          </div>
         </div>
       </div>
     </div>
