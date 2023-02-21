@@ -10,6 +10,14 @@ const ContentSection = ({ upload, account }) => {
 	const [loading, setLoading] = useState(true);
 	const [items, setItems] = useState([]);
 
+	const getSize = async (url) => {
+		const response = await fetch(url);
+		const respBlob = await response.blob();
+		const size = respBlob.size / 1000000;
+		const type = respBlob.type;
+		return { size, type };
+	};
+
 	const loadStorage = async () => {
 		console.log(await upload.tokenId());
 		const itemCount = await upload.tokenId();
@@ -43,10 +51,15 @@ const ContentSection = ({ upload, account }) => {
 				const file = await response;
 				console.log(file.url);
 
+				const { size, type } = await getSize(file.url);
+				console.log(size);
+				console.log(type);
 				items.push({
 					image: file.url,
 					cid: cid,
 					fileName: fileName,
+					size: size,
+					type: type,
 				});
 			})
 		);
