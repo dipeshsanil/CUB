@@ -64,8 +64,8 @@ const Share = () => {
         <div className="col-lg-6 text-center share-content">
           <h2>Share Away!</h2>
           <p>
-            Your file is now encrypted and stored on IPFS. Share the link to
-            grant People access.
+            Your file is now stored on IPFS. Share the link to grant People
+            access.
           </p>
           <input
             className="copytext-label"

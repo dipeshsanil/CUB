@@ -59,7 +59,7 @@ const Card = ({ key, item }) => {
         </div>
         <div className="card-body">
           <h5 className="card-title mb-3">{item.fileName}</h5>
-          <div className="row ">
+          <div className="row pb-2">
             <div className="col-lg-10 col-sm-10">
               <div className="d-grid gap-2">
                 <button className="btn btn-primary">
