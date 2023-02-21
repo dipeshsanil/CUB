@@ -20,21 +20,6 @@ const ContentSection = ({ upload, account }) => {
 		// console.log(results);
 
 		let items = [];
-		// for (let i = 1; i <= itemCount; i++) {
-		// 	// const item = await upload.items(i)
-
-		// 	const uri = await upload.getTokenURI(i);
-
-		// 	//console.log(uri)
-
-		// 	const response = await fetch(uri);
-		// 	const file = await response;
-		// 	console.log(file.url);
-
-		// 	items.push({
-		// 		image: file.url,
-		// 	});
-		// }
 
 		//segrates the data accrding to the users
 		const myData = await Promise.all(
@@ -45,15 +30,23 @@ const ContentSection = ({ upload, account }) => {
 				console.log(item.itemId.toNumber());
 				const uri = await upload.getTokenURI(item.itemId.toNumber());
 
+				// It parses the CID from the uri
+				const cid = uri.split(".")[0].replace("https://", "");
+
+				// It parses the fileName from the uri
+				const decodename = decodeURI(uri);
+				const fileName = decodename.substring(decodename.lastIndexOf("/") + 1);
 				//console.log(uri)
 
+				//it fetches the uri
 				const response = await fetch(uri);
 				const file = await response;
 				console.log(file.url);
-				console.log(file.name);
 
 				items.push({
 					image: file.url,
+					cid: cid,
+					fileName: fileName,
 				});
 			})
 		);
