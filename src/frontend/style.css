@@ -171,6 +171,12 @@ a:hover {
   color: #8f8f8f;
 }
 
+/* Card Section */
+.share-icon:hover {
+  cursor: pointer;
+  color: #0275d8;
+}
+
 /* Footer */
 #footer {
   padding: 5% 15%;
@@ -179,6 +185,18 @@ a:hover {
   color: #fff;
   text-align: center;
 }
+
+/* Share Section */
+#share {
+  padding: 10% 15%;
+}
+
+.copytext-label {
+  padding: 1rem;
+}
+/* .share-content {
+  padding: 1rem 15%;
+} */
 
 /* Media Queries*/
 
