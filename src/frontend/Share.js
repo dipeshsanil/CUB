@@ -47,7 +47,6 @@ const Share = () => {
 		alert("Copied the text: " + copyText.value);
 	};
 
-<<<<<<< HEAD
 	console.log(url);
 	return (
 		<div id="share" className="container-fluid">
@@ -86,47 +85,6 @@ const Share = () => {
 			</div>
 		</div>
 	);
-=======
-  console.log(url);
-  return (
-    <div id="share" className="container-fluid">
-      <div class="row">
-        <div className="col-lg-6">
-          <img
-            onError={(e) => {
-              e.target.src = altImg;
-            }}
-            src={item.image}
-            style={{ width: "100%", borderRadius: "25px" }}
-            alt="Preview not available"
-          />
-        </div>
-        <div className="col-lg-6 text-center share-content">
-          <h2>Share Away!</h2>
-          <p>
-            Your file is now stored on IPFS. Share the link to grant People
-            access.
-          </p>
-          <input
-            className="copytext-label"
-            type="text"
-            value={shareUrl}
-            id="myInput"
-          ></input>
-          <button className="btn btn-primary mx-3" onClick={CopyText}>
-            Copy text
-          </button>
-          <p className="fw-bold pt-3">OR</p>
-          <div className="d-grid gap-2 pb-3">
-            <button className="btn btn-primary">
-              <a onClick={onClick}>Download</a>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
->>>>>>> c8c093337c2ab6f226c61641904100307bb3e76c
 };
 
 export default Share;

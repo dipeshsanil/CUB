@@ -34,7 +34,6 @@ const Card = ({ key, item }) => {
 		navigate(url);
 	};
 
-<<<<<<< HEAD
 	return (
 		<div class="col-lg-3 col-sm-12 gy-4">
 			<div class="card shadow" style={{ borderRadius: 20, height: "98%" }}>
@@ -87,62 +86,6 @@ const Card = ({ key, item }) => {
 			</div>
 		</div>
 	);
-=======
-  return (
-    <div class="col-lg-3 col-sm-12 gy-4">
-      <div class="card shadow" style={{ borderRadius: 20, height: "98%" }}>
-        <div id={key} className="card-image">
-          <img
-            class="card-img"
-            onError={(e) => {
-              e.target.src = altImg;
-            }}
-            style={{
-              // borderTopLeftRadius: 20,
-              // borderTopRightRadius: 20,
-              borderRadius: 20,
-            }}
-            // src= {item.image}
-            // id = {key}
-            src={item.image}
-            className="card-img-top"
-            alt="Preview not available"
-          />
-          {/* {onImageChange(item.image, key)} */}
-          <div className="image-overlay"></div>
-        </div>
-        <div className="card-body">
-          <h5 className="card-title mb-3">{item.fileName}</h5>
-          <div className="row pb-2">
-            <div className="col-lg-10 col-sm-10">
-              <div className="d-grid gap-2">
-                <button className="btn btn-primary">
-                  <a onClick={onClick}>Download</a>
-                </button>
-              </div>
-            </div>
-            <div
-              className="col-lg-2 col-sm-2 justify-content-end align-self-center pe-3"
-              style={{ display: "flex" }}
-            >
-              <a onClick={() => gotoShare(item)}>
-                <IconContext.Provider
-                  value={{
-                    color: "#0047fc",
-                    size: "1.5rem",
-                    className: "share-icon",
-                  }}
-                >
-                  <BsFillShareFill />
-                </IconContext.Provider>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
->>>>>>> c8c093337c2ab6f226c61641904100307bb3e76c
 };
 
 export default Card;
