@@ -3,11 +3,12 @@ import { useLocation } from "react-router-dom";
 import Button from "./Button";
 import { Outlet, useNavigate } from "react-router-dom";
 import { ethers } from "ethers";
+import altImg from "./img/file_alt.jpg";
 
 const Preview = ({ upload }) => {
 	const navigate = useNavigate();
 	const location = useLocation();
-	const item = location.state.item;
+	const item = location.state;
 
 	useEffect(() => {
 		// onImageChange(item.image);
@@ -15,23 +16,17 @@ const Preview = ({ upload }) => {
 
 	return (
 		<div id="details" className="container">
-			<div className="row">
-				<div id="raster" className="col-12 col-lg-6"></div>
-				<div className="col-12 col-lg-6">
-					<div class="d-flex justify-content-between align-items-center">
-						<h3>{item.title}</h3>
-					</div>
-					<div className="py-2">
-						<h5>Details</h5>
-						<p style={{ textAlign: "justify" }}>{item.details}</p>
-					</div>
-					<div>
-						<button class="btn btn-primary btn-rounded">
-							<a href={item.image}>Download</a>
-						</button>
-					</div>
-				</div>
-			</div>
+			<img
+				onError={(e) => {
+					e.target.src = altImg;
+				}}
+				src={item.image}
+				style={{ width: "100%", borderRadius: "25px" }}
+				alt="Preview not available"
+			/>
+			<p>{item.fileName}</p>
+			<p>{item.size}</p>
+			<p>{item.type}</p>
 		</div>
 	);
 };

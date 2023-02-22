@@ -65,32 +65,6 @@ const Upload = ({ upload }) => {
 			}
 		}
 	};
-	// const create = async (event) => {
-	// 	event.preventDefault();
-	// 	// if (!image || !title || !details) return;
-	// 	if (!image) return;
-	// 	try {
-	// 		// const result = await ipfs.add(
-	// 		// 	// JSON.stringify({ image, title, details })
-	// 		// 	JSON.stringify({ image, title})
-	// 		// );
-	// 		const { cid } = await ipfs.add(
-	// 			// JSON.stringify({ image, title, details })
-	// 			JSON.stringify({ image, title})
-	// 		);
-	// 		console.log(cid);
-	// 		await uploaddetails(cid);
-	// 	} catch (error) {
-	// 		console.log("ipfs uri upload error: ", error);
-	// 	}
-	// };
-
-	// const uploaddetails = async (result) => {
-	// 	console.log(result);
-	// 	const uri = `https://ipfs.io/ipfs/${result}`;
-	// 	await (await upload.uploadImage(uri)).wait();
-	// 	console.log(await upload.tokenId());
-	// };
 
 	const uploaddetails = async (event) => {
 		event.preventDefault();
@@ -129,35 +103,6 @@ const Upload = ({ upload }) => {
 						id="title"
 					/>
 				</div>
-				<div className="mb-3">
-					<label for="title" className="form-label">
-						Share
-					</label>
-					<input
-						onChange={(e) => setTitle(e.target.value)}
-						type="text"
-						className="form-control"
-						id="title"
-						value={image}
-					/>
-				</div>
-
-				{/* <div className="mb-3">
-					<label for="exampleInputPassword1" className="form-label">
-						Details
-					</label>
-					<textarea
-						onChange={(e) => setDetails(e.target.value)}
-						type="text"
-						className="form-control"
-						rows="6"
-					/>
-				</div> */}
-				{/* <div className="mb-3">
-        <label for="title" className="form-label">Price</label>
-        <input onChange={(e) => setPrice(e.target.value)} type="number" className="form-control" id="title"/>
-        
-    </div> */}
 
 				<button type="submit" onClick={onClick} className="btn btn-primary">
 					Submit
