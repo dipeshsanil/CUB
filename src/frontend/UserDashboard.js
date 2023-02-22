@@ -11,7 +11,7 @@ const UserDashboard = () =>{
             </div>
             <hr></hr>
             <div className="py-1">
-                <h3><b>NFT's OWNED</b></h3>
+                <h3><b>Files OWNED</b></h3>
                 <div>
                     <div className="row my-5">
                         <Card/>

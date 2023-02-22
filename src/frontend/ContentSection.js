@@ -4,6 +4,7 @@ import "./style.css";
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import Button from "./Button";
+import NavBar from "./NavBar";
 
 const ContentSection = ({ upload, account }) => {
 	console.log(upload);
@@ -17,6 +18,8 @@ const ContentSection = ({ upload, account }) => {
 		const type = respBlob.type;
 		return { size, type };
 	};
+
+	const addNode = (idx) => document.add(idx);
 
 	const loadStorage = async () => {
 		console.log(await upload.tokenId());
@@ -68,7 +71,12 @@ const ContentSection = ({ upload, account }) => {
 		setItems(items);
 	};
 
+	const showdiv = () => document.querySelector("#icon").classList.remove("invisible");
+
+
 	useEffect(() => {
+		// addNode("navbarDropdown");
+		showdiv();
 		loadStorage();
 	}, []);
 

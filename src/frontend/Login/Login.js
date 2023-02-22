@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { ethers } from "ethers";
 import "../style.css";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -34,6 +34,14 @@ const Login = ({ web3Handler }) => {
       }
     }
   };
+
+ const hidediv = () => document.querySelector("#icon").classList.add("invisible");
+
+ 
+ useEffect(() => {
+  hidediv();
+}, []);
+
 
   // const connectWalletHandler = () => {
   // 	if (window.ethereum && defaultAccount == null) {

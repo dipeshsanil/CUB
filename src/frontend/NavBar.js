@@ -25,7 +25,7 @@ const NavBar = ({ web3Handler, account, balance }) => {
             </a>
           </Link>
 
-          <div className="nav-item dropdown">
+          <div id="icon" className="nav-item dropdown">
             <a
               className="nav-link"
               href="#"
