@@ -34,6 +34,17 @@ const Card = ({ key, item }) => {
 		navigate(url);
 	};
 
+	const getFileName = (fileName) => {
+		if (fileName.length > 24) {
+			const displayFileName =
+				fileName.slice(0, 17) + "..." + fileName.slice(-6);
+			return displayFileName;
+		} else if (fileName.length < 1) {
+			return "Unknown File";
+		}
+		return fileName;
+	};
+
 	return (
 		<div class="col-lg-3 col-sm-12 gy-4">
 			<div class="card shadow" style={{ borderRadius: 20, height: "98%" }}>
@@ -58,7 +69,7 @@ const Card = ({ key, item }) => {
 					<div className="image-overlay"></div>
 				</div>
 				<div className="card-body">
-					<h5 className="card-title mb-3">{item.fileName}</h5>
+					<h5 className="card-title mb-3">{getFileName(item.fileName)}</h5>
 					<div className="row ">
 						<div className="col-lg-10 col-sm-10">
 							<div className="d-grid gap-2">
