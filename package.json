@@ -32,7 +32,6 @@
 		"react-dom": "^18.0.0",
 		"react-icons": "^4.7.1",
 		"react-router-dom": "^6.3.0",
-		"react-scripts": "5.0.0",
 		"styled-components": "^5.3.6",
 		"tiff": "^5.0.3",
 		"tiff.js": "^1.0.0",
@@ -66,6 +65,7 @@
 		]
 	},
 	"devDependencies": {
-		"@babel/preset-env": "^7.16.11"
+		"@babel/preset-env": "^7.16.11",
+		"react-scripts": "5.0.0"
 	}
 }
