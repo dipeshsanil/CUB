@@ -70,7 +70,7 @@ const Share = () => {
 					<input
 						className="copytext-label"
 						type="text"
-						value={shareUrl}
+						value={window.location.href}
 						id="myInput"></input>
 					<button className="btn btn-primary mx-3" onClick={CopyText}>
 						Copy text

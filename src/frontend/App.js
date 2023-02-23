@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter , Routes, Route, Navigate } from "react-router-dom";
 import UploadAddress from "./contractsData/Upload-address.json";
 import UploadAbi from "./contractsData/Upload.json";
 import NavBar from "./NavBar";
@@ -63,20 +63,13 @@ const App = () => {
 							/>
 						}>
 						<Route index element={<Login web3Handler={web3Handler} />} />
-						<Route
-							path="home"
-							element={<Home upload={upload} account={account} />}
-						/>
+						<Route path="home" element={<Home upload={upload} account={account} />} />
 						<Route path="*" element={<Navigate to="/" />} />
-						{/* //change */}
 						<Route path="preview" element={<Preview upload={upload} />} />
 						<Route path="user" element={<UserDashboard />} />
 						<Route path="admin" element={<AdminDashboard />} />
 						<Route path="upload" element={<Upload upload={upload} />} />
-						<Route
-							path="files/:cid/:filename"
-							element={<Share route={Route} />}
-						/>
+						<Route path="files/:cid/:filename" element={<Share route={Route} />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
