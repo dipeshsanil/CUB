@@ -9,7 +9,7 @@ const Share = () => {
 	const navigate = useNavigate();
 	const params = useParams();
 	const url = "https://" + params.cid + ".ipfs.dweb.link/" + params.filename;
-	const domain = "http://localhost:3000/files/";
+	const domain = "https://cublc-76452.web.app/files/";
 	const shareUrl = domain + params.cid + "/" + params.filename;
 
 	const item = {
@@ -64,7 +64,7 @@ const Share = () => {
 				<div className="col-lg-6 text-center share-content">
 					<h2>Share Away!</h2>
 					<p>
-						Your file is now encrypted and stored on IPFS. Share the link to
+						Your file is now stored on IPFS. Share the link to
 						grant People access.
 					</p>
 					<input

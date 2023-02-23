@@ -22,6 +22,7 @@
 		"chai": "^4.3.6",
 		"ethereum-waffle": "^4.0.7",
 		"ethers": "^5.5.4",
+		"firebase-tools": "^11.23.1",
 		"geotiff": "^2.0.5",
 		"hardhat": "^2.12.2",
 		"ipfs-core": "^0.18.0",

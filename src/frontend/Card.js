@@ -96,7 +96,7 @@ const Card = ({ key, item }) => {
 						<div className="col-lg-12 ">
 							<Link to="/preview" state={item}>
 								<div className="d-grid gap-2 my-2">
-									<div className="btn btn-outline-primary">Preview</div>
+									<div className="btn btn-outline-primary">Properties</div>
 								</div>
 							</Link>
 						</div>

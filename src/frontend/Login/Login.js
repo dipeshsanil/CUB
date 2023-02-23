@@ -35,7 +35,8 @@ const Login = ({ web3Handler }) => {
     }
   };
 
- const hidediv = () => document.querySelector("#icon").classList.add("invisible");
+ const hidediv = () => document.querySelector("#icon").classList.add("remove");
+
 
  
  useEffect(() => {

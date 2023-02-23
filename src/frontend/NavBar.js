@@ -6,6 +6,8 @@ import { AiOutlineUser } from "react-icons/ai";
 import { BiCoinStack } from "react-icons/bi";
 import { AiOutlineUpload } from "react-icons/ai";
 
+
+
 import Button from "./Button";
 
 const NavBar = ({ web3Handler, account, balance }) => {
@@ -15,16 +17,28 @@ const NavBar = ({ web3Handler, account, balance }) => {
     navigate(0);
   };
 
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-light">
         <div className="container">
-          <Link to="/home" style={{ textDecoration: "none" }}>
-            <a className="navbar-brand" href="#">
+          <div id="login-redirect" className="">
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <a  className="navbar-brand" href="#">
+            
               CyberLocker
             </a>
           </Link>
-
+          </div>
+          <div id="home-redirect" className="remove">
+          <Link to="/home" style={{ textDecoration: "none" }}>
+            <a  className="navbar-brand" href="#">
+            
+              CyberLocker
+            </a>
+          </Link>
+          </div>
+          
           <div id="icon" className="nav-item dropdown">
             <a
               className="nav-link"
@@ -76,6 +90,13 @@ const NavBar = ({ web3Handler, account, balance }) => {
                   </span>
                 )}
               </li>
+              {/* <li>
+              <a className="dropdown-item" href="#">
+                  <span>
+                    <ImFilesEmpty /> My Files
+                  </span>
+                </a>
+              </li> */}
               <li>
                 <a className="dropdown-item" href="#">
                   <span>
@@ -84,13 +105,7 @@ const NavBar = ({ web3Handler, account, balance }) => {
                   </span>
                 </a>
               </li>
-              {/* <li>
-                  <Link to="/admin" style={{ textDecoration: "none" }}>
-                    <a className="dropdown-item" href="#">
-                      <span>Uploaded NFT's</span>
-                    </a>
-                  </Link>
-                </li> */}
+             
               <li>
                 <Link to="/upload" style={{ textDecoration: "none" }}>
                   <a className="dropdown-item" href="#">

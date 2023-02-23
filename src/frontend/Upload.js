@@ -34,24 +34,19 @@ const Upload = ({ upload }) => {
   const [file, setFile] = useState("");
   const [cid, setCid] = useState("");
   const [fileName, setFileName] = useState("");
+  const [isButtonDisabled, setBtn] = useState("");
   // const [url, setUrl] = useState("");
   // const [details, setDetails] = useState("");
 
   //Uploads the file to ipfs
   const send = async (event) => {
     event.preventDefault();
+    setBtn(true)
+    setTimeout(() => setBtn(false), 15000);
     const file = event.target.files[0];
     console.log(file);
     if (typeof file !== "undefined") {
       try {
-        //const result = await client.add(file);
-        // await start();
-        // const { cid } = await ipfs.add(file)
-        // console.log(cid);
-        //const files = await getFilesFromPath(file.webkitRelativePath)
-        // const ext = file.name.split('.').pop();
-        // const fileName = `${uuid()}.${ext}`;
-        // const newFile = new File([file], fileName, {type: file.type});
         const cid = await client.put([file], {
           name: file.name,
         });
@@ -86,6 +81,7 @@ const Upload = ({ upload }) => {
       });
   };
 
+
   return (
     <div className="container" id="details">
       <h2 className="text-center py-5">Upload File</h2>
@@ -108,6 +104,7 @@ const Upload = ({ upload }) => {
             type="submit"
             onClick={onClick}
             className="btn btn-outline-primary"
+            disabled={isButtonDisabled}
           >
             Submit
           </button>

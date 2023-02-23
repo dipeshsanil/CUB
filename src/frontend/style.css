@@ -217,3 +217,7 @@ a:hover {
 .invisible {
   visibility: hidden;
 }
+
+.remove{
+  display: none;
+}

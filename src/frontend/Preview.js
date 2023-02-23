@@ -55,7 +55,7 @@ const Preview = ({ upload }) => {
                   <td>
                     <span className="fw-bold">Size: </span>
                   </td>
-                  <td>{item.size}</td>
+                  <td>{item.size} MB</td>
                 </tr>
                 <tr>
                   <td>

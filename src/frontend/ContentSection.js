@@ -2,11 +2,13 @@ import React from "react";
 import { ethers } from "ethers";
 import "./style.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import Button from "./Button";
 import NavBar from "./NavBar";
 
 const ContentSection = ({ upload, account }) => {
+	const navigate = useNavigate();
 	console.log(upload);
 	const [loading, setLoading] = useState(true);
 	const [items, setItems] = useState([]);
@@ -71,11 +73,15 @@ const ContentSection = ({ upload, account }) => {
 		setItems(items);
 	};
 
-	const showdiv = () => document.querySelector("#icon").classList.remove("invisible");
+	const showdiv = () => document.querySelector("#icon").classList.remove("remove");
 
+	const href = () =>  {
+		document.querySelector("#login-redirect").classList.add("remove");
+		document.querySelector("#home-redirect").classList.remove("remove");
+};
 
 	useEffect(() => {
-		// addNode("navbarDropdown");
+		href();
 		showdiv();
 		loadStorage();
 	}, []);
